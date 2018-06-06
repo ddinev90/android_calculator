@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/background"
+    tools:context=".MainActivity">
+
+    <ImageButton
+        android:background="@android:color/transparent"
+        android:id="@+id/triangleButton"
+        android:layout_width="190dp"
+        android:layout_height="137dp"
+        android:layout_marginBottom="19dp"
+        android:layout_marginTop="16dp"
+        android:contentDescription="@string/triangle"
+        app:layout_constraintBottom_toTopOf="@+id/squareButton"
+        app:layout_constraintStart_toStartOf="@+id/squareButton"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@mipmap/triangle" />
+
+    <ImageButton
+        android:background="@android:color/transparent"
+        android:id="@+id/squareButton"
+        android:layout_width="190dp"
+        android:layout_height="137dp"
+        android:layout_marginBottom="11dp"
+        android:contentDescription="@string/square"
+        app:layout_constraintBottom_toTopOf="@+id/historyButton"
+        app:layout_constraintEnd_toEndOf="@+id/historyButton"
+        app:layout_constraintStart_toStartOf="@+id/historyButton"
+        app:layout_constraintTop_toBottomOf="@+id/triangleButton"
+        app:srcCompat="@mipmap/png_square" />
+
+    <ImageButton
+        android:background="@android:color/transparent"
+        android:id="@+id/historyButton"
+        android:layout_width="190dp"
+        android:layout_height="137dp"
+        android:layout_marginBottom="3dp"
+        android:contentDescription="@string/history"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/squareButton"
+        app:srcCompat="@mipmap/history" />
+</android.support.constraint.ConstraintLayout>

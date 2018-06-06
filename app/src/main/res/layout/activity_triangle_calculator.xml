@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/background"
+    tools:context=".TriangleCalculator">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/triangleGreeting"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+
+        tools:text="This is the calculator for Triangles. Choose a formula and enter the necessary values" />
+
+    <Spinner
+        android:id="@+id/triangle_formula_spinner"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="34dp"
+        android:layout_marginStart="34dp"
+        android:layout_marginTop="116dp"
+        android:contentDescription="@string/chooseFormula"
+        android:entries="@array/triangle_formula_arrays"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/SquareInput1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="33dp"
+        android:layout_marginTop="19dp"
+        android:ems="10"
+        android:inputType="number"
+        android:hint="@string/base"
+        app:layout_constraintStart_toStartOf="@+id/triangle_formula_spinner"
+        app:layout_constraintTop_toBottomOf="@+id/triangle_formula_spinner" />
+
+    <EditText
+        android:id="@+id/SquareInput2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:ems="10"
+        android:inputType="number"
+        android:hint="@string/height"
+        app:layout_constraintStart_toStartOf="@+id/SquareInput1"
+        app:layout_constraintTop_toBottomOf="@+id/SquareInput1" />
+
+    <EditText
+        android:id="@+id/Input3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:ems="10"
+        android:inputType="number"
+        android:hint="@string/name"
+        app:layout_constraintStart_toStartOf="@+id/SquareInput2"
+        app:layout_constraintTop_toBottomOf="@+id/SquareInput2" />
+
+    <TextView
+        android:id="@+id/SquareResult"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_marginBottom="80dp"
+        android:layout_marginStart="8dp"
+        android:ems="14"
+        android:text="@string/result"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/triangle_formula_spinner"
+        app:layout_constraintHorizontal_bias="0.327"
+        app:layout_constraintStart_toStartOf="@+id/triangle_formula_spinner" />
+
+    <Button
+        android:id="@+id/calculate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="13dp"
+        android:background="@android:color/holo_green_dark"
+        android:text="@string/calculate"
+        app:layout_constraintBottom_toTopOf="@+id/SquareResult"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</android.support.constraint.ConstraintLayout>

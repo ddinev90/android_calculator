@@ -1,0 +1,19 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:background="@mipmap/background"
+    android:layout_weight="1"
+    android:scrollbars="none"
+    >
+
+<TableLayout
+    android:id="@+id/tableLayoutRecords"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="5dp"
+    android:orientation="vertical"
+    android:layout_below="@+id/textViewRecordCount"
+    >
+
+</TableLayout>
+</ScrollView>
