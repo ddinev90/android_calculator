@@ -13,7 +13,7 @@ import java.util.List;
 public class DBOpenHelper extends SQLiteOpenHelper {
 
     public static final String DATABASE_NAME = "CalculatingShapeDB";
-    public static final int DATABASE_VERSION = 6;
+    public static final int DATABASE_VERSION = 7;
 
     private static final String TRIANGLE_TABLE_NAME = "triangle";
     private static final String TRIANGLE_COL_ID = "id";
@@ -53,6 +53,7 @@ public class DBOpenHelper extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS " +  TRIANGLE_TABLE_NAME );
+        db.execSQL("DROP TABLE IF EXISTS " +  LOGIN_TABLE_NAME );
         onCreate(db);
     }
 
@@ -118,9 +119,10 @@ public class DBOpenHelper extends SQLiteOpenHelper {
     }
     public String getSingleEntry(String userName)
     {
-        String selectQuery = "SELECT * FROM MyTable WHERE " + userName + " =?";
+
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor=db.rawQuery(selectQuery, null);
+        Cursor cursor=db.query("LOGIN", null, " USERNAME=?", new String[]{userName}, null, null, null);
+
         if(cursor.getCount()<1) // UserName Not Exist
         {
             cursor.close();
@@ -129,6 +131,7 @@ public class DBOpenHelper extends SQLiteOpenHelper {
         cursor.moveToFirst();
         String password= cursor.getString(cursor.getColumnIndex("PASSWORD"));
         cursor.close();
+        db.close();
         return password;
     }
     public void updateEntry(String userName,String password)
