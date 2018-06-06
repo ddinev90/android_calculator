@@ -118,8 +118,9 @@ public class DBOpenHelper extends SQLiteOpenHelper {
     }
     public String getSingleEntry(String userName)
     {
+        String selectQuery = "SELECT * FROM MyTable WHERE " + userName + " =?";
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor=db.query("LOGIN", null, " USERNAME=?", new String[]{userName}, null, null, null);
+        Cursor cursor=db.rawQuery(selectQuery, null);
         if(cursor.getCount()<1) // UserName Not Exist
         {
             cursor.close();

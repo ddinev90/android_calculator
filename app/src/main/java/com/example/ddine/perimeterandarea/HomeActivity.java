@@ -20,14 +20,13 @@ public class HomeActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-
-// Get The Refference Of Buttons
         btnSignIn= findViewById(R.id.buttonSignIn);
         btnSignUp= findViewById(R.id.buttonSignUp);
         btnSignIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                signIn(v);
+               Intent intentSignIn = new Intent(getApplicationContext(),SignINActivity.class);
+               startActivity(intentSignIn);
             }
         });
 // Set OnClick Listener on SignUp button
@@ -41,41 +40,7 @@ public class HomeActivity extends AppCompatActivity
         });
     }
     // Methods to handleClick Event of Sign In Button
-    public void signIn(View V) {
-        final Dialog dialog = new Dialog(this);
-        dialog.setContentView(R.layout.login);
-        dialog.setTitle("LOGIN");
 
-// get the References of views
-        final EditText editTextUserName = dialog.findViewById(R.id.editTextUserNameToLogin);
-        final EditText editTextPassword = dialog.findViewById(R.id.editTextPasswordToLogin);
-
-// Set On ClickListener
-        btnSignIn.setOnClickListener(new View.OnClickListener() {
-
-            public void onClick(View v) {
-// get The User name and Password
-                String userName=editTextUserName.getText().toString();
-                String password=editTextPassword.getText().toString();
-
-// fetch the Password form database for respective user name
-                String storedPassword=loginDataBaseAdapter.getSingleEntry(userName);
-
-// check if the Stored password matches with Password entered by user
-                if(password.equals(storedPassword))
-                {
-                    Toast.makeText(HomeActivity.this, "Congrats: Login Successfull", Toast.LENGTH_LONG).show();
-                    dialog.dismiss();
-                }
-                else
-                {
-                    Toast.makeText(HomeActivity.this, "User Name or Password does not match", Toast.LENGTH_LONG).show();
-                }
-            }
-        });
-
-        dialog.show();
-    }
 
     @Override
     protected void onDestroy() {
